@@ -7,7 +7,6 @@
 //
 
 #import "KMViewController.h"
-#import "KMCustomButton.h"
 #import "GradientButton.h"
 
 @interface KMViewController ()
@@ -19,7 +18,8 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+	// Do any additional setup after loading the view, typically from a nib.（テンプレートコメント）
+
   UIView *bgHeaderView = [[UIView alloc]init];
   CAGradientLayer *gradient = [CAGradientLayer layer];
   gradient.frame = self.view.bounds;
@@ -29,31 +29,11 @@
   bgHeaderView.backgroundColor = [UIColor clearColor];//[UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:1.0];
   [self.view addSubview:bgHeaderView];
 
-/*
-  CAGradientLayer *gradient = [CAGradientLayer layer];
-  gradient.frame = bgHeaderView.bounds;
-  gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:1.0] CGColor], (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0] CGColor], nil];
-  [bgHeaderView.layer insertSublayer:gradient atIndex:0];
-  
-  self.view.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:1.0];
-  [self.view addSubview:bgHeaderView];
-*/
-
-/*
-  KMCustomButton *btn = [KMCustomButton buttonWithType:UIButtonTypeCustom];
-  btn.frame = CGRectMake(320/2, 250/2, 66, 44);
-  [btn setTitle:@"押して" forState:UIControlStateNormal];
-  [btn setTitle:@"押した" forState:UIControlStateHighlighted];
-  [btn setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
-  [bgHeaderView addSubview:btn];
-*/
-
   UIPickerView *piv = [[UIPickerView alloc] init];
-  piv.center = self.view.center;  // 中央に表示
-//  piv.frame = CGRectMake(0, 500-250-100, 320, 90);
+  piv.center = self.view.center;
   piv.frame = CGRectMake(0, 400-100-50, KM_PICKER_WEIGHT, KM_PICKER_HEIGHT);
-  piv.delegate = self;  // デリゲートを自分自身に設定
-  piv.dataSource = self;  // データソースを自分自身に設定
+  piv.delegate = self;
+  piv.dataSource = self;
   piv.backgroundColor = [UIColor clearColor];
   piv.showsSelectionIndicator = YES;
   [piv selectRow:0 inComponent:0 animated:NO];
@@ -64,37 +44,17 @@
   
   UIView *bgFooterView = [[UIView alloc]init];
   bgFooterView.frame = CGRectMake(0, 460-50, KM_FOOTER_WEIGHT, KM_FOOTER_HEIGHT);
-  bgFooterView.backgroundColor = [UIColor whiteColor];//[UIColor colorWithRed:0.2 green:0.2 blue:0.2 alpha:1.0];
-  /*
-   CAGradientLayer *gradientFooter = [CAGradientLayer layer];
-   gradientFooter.frame = bgFooterView.bounds;
-   gradientFooter.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:0.6 green:0.6 blue:0.6 alpha:1.0] CGColor], (id)[[UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:1.0] CGColor], nil];
-   [bgFooterView.layer insertSublayer:gradientFooter atIndex:0];
-   */
-   [self.view addSubview:bgFooterView];
-//  KMCustomButton *saveButton = [KMCustomButton buttonWithType:UIButtonTypeCustom];
-/*
-  GradientButton *saveButton;
- saveButton = [[GradientButton alloc]init];
-  saveButton.frame = CGRectMake
-  ((KM_FOOTER_WEIGHT/FOOTER_BUTTON_NUM)/2-FOOTER_BUTTON_WEIGHT/2, 0, FOOTER_BUTTON_WEIGHT, KM_FOOTER_HEIGHT-2);
-  saveButton.text = @"save";
-*/
-  //GradientButtonは初期化IFにinitWithFrameを指定しないとボタン動作をしない為注意！
-  GradientButton *myButton = [[GradientButton alloc]initWithFrame:CGRectMake((KM_FOOTER_WEIGHT/FOOTER_BUTTON_NUM)/2-FOOTER_BUTTON_WEIGHT/2, 0, FOOTER_BUTTON_WEIGHT, KM_FOOTER_HEIGHT-2)];
-  myButton.backgroundColor = [UIColor purpleColor];
-  myButton.text = @"myButton";
-//  [self.view addSubview:myButton];
+  bgFooterView.backgroundColor = [UIColor whiteColor];
+  [self.view addSubview:bgFooterView];
 
-  [bgFooterView addSubview:myButton];
-//  [self.view addSubview:saveButton];
-//  saveButton.enabled = YES;
-  KMCustomButton *cancelButton = [KMCustomButton buttonWithType:UIButtonTypeCustom];
-  cancelButton.frame = CGRectMake
-  (((KM_FOOTER_WEIGHT/FOOTER_BUTTON_NUM)*1)+(FOOTER_BUTTON_WEIGHT/2), (KM_FOOTER_HEIGHT-FOOTER_BUTTON_HEIGHT)/2, FOOTER_BUTTON_WEIGHT, KM_FOOTER_HEIGHT-2);
-  [cancelButton setTitle:@"cancel" forState:UIControlStateNormal];
-  [cancelButton setTitle:@"canceled" forState:UIControlStateHighlighted];
-  [cancelButton setTitleColor:[UIColor redColor] forState:UIControlStateHighlighted];
+  //注意：GradientButtonは初期化IFにinitWithFrameを指定しないとボタン動作をしない為注意！
+  GradientButton *saveButton = [[GradientButton alloc]initWithFrame:CGRectMake((KM_FOOTER_WEIGHT/FOOTER_BUTTON_NUM)/2-FOOTER_BUTTON_WEIGHT/2, 0, FOOTER_BUTTON_WEIGHT, KM_FOOTER_HEIGHT-2)];
+  saveButton.backgroundColor = [UIColor purpleColor];
+  saveButton.text = @"myButton";
+
+  [bgFooterView addSubview:saveButton];
+  GradientButton *cancelButton = [[GradientButton alloc]initWithFrame:CGRectMake(((KM_FOOTER_WEIGHT/FOOTER_BUTTON_NUM)*1)+(FOOTER_BUTTON_WEIGHT/2), (KM_FOOTER_HEIGHT-FOOTER_BUTTON_HEIGHT)/2, FOOTER_BUTTON_WEIGHT, KM_FOOTER_HEIGHT-2)];
+  cancelButton.text = @"cancel";
   [bgFooterView addSubview:cancelButton];
   self.view.userInteractionEnabled=YES;
   bgFooterView.userInteractionEnabled=YES;

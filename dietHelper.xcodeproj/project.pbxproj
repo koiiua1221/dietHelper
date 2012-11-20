@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3436DB761653B17E0080F066 /* KMCustomButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3436DB751653B17E0080F066 /* KMCustomButton.m */; };
 		3455177B16584E7700A9020B /* GradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3455177A16584E7700A9020B /* GradientButton.m */; };
 		34A87C801653124F00E8EF2E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A87C7F1653124F00E8EF2E /* UIKit.framework */; };
 		34A87C821653124F00E8EF2E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A87C811653124F00E8EF2E /* Foundation.framework */; };
@@ -38,8 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3436DB741653B17E0080F066 /* KMCustomButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMCustomButton.h; sourceTree = "<group>"; };
-		3436DB751653B17E0080F066 /* KMCustomButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMCustomButton.m; sourceTree = "<group>"; };
 		3455177916584E7700A9020B /* GradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientButton.h; sourceTree = "<group>"; };
 		3455177A16584E7700A9020B /* GradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientButton.m; sourceTree = "<group>"; };
 		34A87C7B1653124F00E8EF2E /* dietHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dietHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,8 +124,6 @@
 			children = (
 				34A87C8E1653124F00E8EF2E /* KMAppDelegate.h */,
 				34A87C8F1653124F00E8EF2E /* KMAppDelegate.m */,
-				3436DB741653B17E0080F066 /* KMCustomButton.h */,
-				3436DB751653B17E0080F066 /* KMCustomButton.m */,
 				3455177916584E7700A9020B /* GradientButton.h */,
 				3455177A16584E7700A9020B /* GradientButton.m */,
 				34A87C9D1653124F00E8EF2E /* KMViewController.h */,
@@ -284,7 +279,6 @@
 				34A87C8C1653124F00E8EF2E /* main.m in Sources */,
 				34A87C901653124F00E8EF2E /* KMAppDelegate.m in Sources */,
 				34A87C9F1653124F00E8EF2E /* KMViewController.m in Sources */,
-				3436DB761653B17E0080F066 /* KMCustomButton.m in Sources */,
 				3455177B16584E7700A9020B /* GradientButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
