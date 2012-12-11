@@ -7,12 +7,18 @@
 //
 
 #import "KMAppDelegate.h"
-
+#import "KMViewController.h"
 @implementation KMAppDelegate
-
+@synthesize window;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+  CGRect bounds = [[UIScreen mainScreen]bounds];
+  window = [[UIWindow alloc]initWithFrame:bounds];
+  KMViewController *mainView = [[KMViewController alloc]init];
+  rootController_ = [[UINavigationController alloc]initWithRootViewController:mainView];
+  [window addSubview:rootController_.view];
+  [window makeKeyAndVisible];
     return YES;
 }
 							

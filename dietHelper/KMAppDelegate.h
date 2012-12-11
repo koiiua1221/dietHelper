@@ -9,7 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface KMAppDelegate : UIResponder <UIApplicationDelegate>
-
+{
+  UIWindow *window;
+  UIViewController *rootController_;
+}
 @property (strong, nonatomic) UIWindow *window;
 
 @end

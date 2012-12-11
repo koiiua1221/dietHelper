@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3455177B16584E7700A9020B /* GradientButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3455177A16584E7700A9020B /* GradientButton.m */; };
+		345F52AB1676D78700310EB3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 345F52AA1676D78700310EB3 /* icon.png */; };
+		3487298916754C7C004A5890 /* KMweightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3487298816754C7C004A5890 /* KMweightView.m */; };
+		3487298E16756DB3004A5890 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3487298B16756DB3004A5890 /* Model.xcdatamodeld */; };
+		34872991167571BD004A5890 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34872990167571BD004A5890 /* CoreData.framework */; };
+		348729941675783B004A5890 /* WeightData.m in Sources */ = {isa = PBXBuildFile; fileRef = 348729931675783B004A5890 /* WeightData.m */; };
+		3487299716757A17004A5890 /* KMweightDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3487299616757A17004A5890 /* KMweightDataManager.m */; };
 		34A87C801653124F00E8EF2E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A87C7F1653124F00E8EF2E /* UIKit.framework */; };
 		34A87C821653124F00E8EF2E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A87C811653124F00E8EF2E /* Foundation.framework */; };
 		34A87C841653124F00E8EF2E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A87C831653124F00E8EF2E /* CoreGraphics.framework */; };
@@ -37,8 +42,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3455177916584E7700A9020B /* GradientButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GradientButton.h; sourceTree = "<group>"; };
-		3455177A16584E7700A9020B /* GradientButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GradientButton.m; sourceTree = "<group>"; };
+		345F52AA1676D78700310EB3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		3487298716754C7B004A5890 /* KMweightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMweightView.h; sourceTree = "<group>"; };
+		3487298816754C7C004A5890 /* KMweightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMweightView.m; sourceTree = "<group>"; };
+		3487298C16756DB3004A5890 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		34872990167571BD004A5890 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		348729921675783B004A5890 /* WeightData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WeightData.h; sourceTree = "<group>"; };
+		348729931675783B004A5890 /* WeightData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WeightData.m; sourceTree = "<group>"; };
+		3487299516757A17004A5890 /* KMweightDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMweightDataManager.h; sourceTree = "<group>"; };
+		3487299616757A17004A5890 /* KMweightDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMweightDataManager.m; sourceTree = "<group>"; };
 		34A87C7B1653124F00E8EF2E /* dietHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dietHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A87C7F1653124F00E8EF2E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		34A87C811653124F00E8EF2E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -49,9 +61,9 @@
 		34A87C8D1653124F00E8EF2E /* dietHelper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dietHelper-Prefix.pch"; sourceTree = "<group>"; };
 		34A87C8E1653124F00E8EF2E /* KMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMAppDelegate.h; sourceTree = "<group>"; };
 		34A87C8F1653124F00E8EF2E /* KMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMAppDelegate.m; sourceTree = "<group>"; };
-		34A87C911653124F00E8EF2E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		34A87C931653124F00E8EF2E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		34A87C951653124F00E8EF2E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		34A87C911653124F00E8EF2E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = dietHelper/Default.png; sourceTree = "<group>"; };
+		34A87C931653124F00E8EF2E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "dietHelper/Default@2x.png"; sourceTree = "<group>"; };
+		34A87C951653124F00E8EF2E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "dietHelper/Default-568h@2x.png"; sourceTree = "<group>"; };
 		34A87C9D1653124F00E8EF2E /* KMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMViewController.h; sourceTree = "<group>"; };
 		34A87C9E1653124F00E8EF2E /* KMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMViewController.m; sourceTree = "<group>"; };
 		34A87CA51653124F00E8EF2E /* dietHelperTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dietHelperTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34872991167571BD004A5890 /* CoreData.framework in Frameworks */,
 				34A87CBE1653175C00E8EF2E /* QuartzCore.framework in Frameworks */,
 				34A87C801653124F00E8EF2E /* UIKit.framework in Frameworks */,
 				34A87C821653124F00E8EF2E /* Foundation.framework in Frameworks */,
@@ -88,9 +101,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		345F52A91676D4D400310EB3 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				345F52AA1676D78700310EB3 /* icon.png */,
+				34A87C911653124F00E8EF2E /* Default.png */,
+				34A87C931653124F00E8EF2E /* Default@2x.png */,
+				34A87C951653124F00E8EF2E /* Default-568h@2x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		34A87C701653124F00E8EF2E = {
 			isa = PBXGroup;
 			children = (
+				345F52A91676D4D400310EB3 /* images */,
 				34A87C851653124F00E8EF2E /* dietHelper */,
 				34A87CAC1653124F00E8EF2E /* dietHelperTests */,
 				34A87C7E1653124F00E8EF2E /* Frameworks */,
@@ -110,6 +135,7 @@
 		34A87C7E1653124F00E8EF2E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				34872990167571BD004A5890 /* CoreData.framework */,
 				34A87CBD1653175C00E8EF2E /* QuartzCore.framework */,
 				34A87C7F1653124F00E8EF2E /* UIKit.framework */,
 				34A87C811653124F00E8EF2E /* Foundation.framework */,
@@ -124,10 +150,15 @@
 			children = (
 				34A87C8E1653124F00E8EF2E /* KMAppDelegate.h */,
 				34A87C8F1653124F00E8EF2E /* KMAppDelegate.m */,
-				3455177916584E7700A9020B /* GradientButton.h */,
-				3455177A16584E7700A9020B /* GradientButton.m */,
 				34A87C9D1653124F00E8EF2E /* KMViewController.h */,
 				34A87C9E1653124F00E8EF2E /* KMViewController.m */,
+				3487298716754C7B004A5890 /* KMweightView.h */,
+				3487298816754C7C004A5890 /* KMweightView.m */,
+				3487298B16756DB3004A5890 /* Model.xcdatamodeld */,
+				348729921675783B004A5890 /* WeightData.h */,
+				348729931675783B004A5890 /* WeightData.m */,
+				3487299516757A17004A5890 /* KMweightDataManager.h */,
+				3487299616757A17004A5890 /* KMweightDataManager.m */,
 				34A87C861653124F00E8EF2E /* Supporting Files */,
 			);
 			path = dietHelper;
@@ -140,9 +171,6 @@
 				34A87C881653124F00E8EF2E /* InfoPlist.strings */,
 				34A87C8B1653124F00E8EF2E /* main.m */,
 				34A87C8D1653124F00E8EF2E /* dietHelper-Prefix.pch */,
-				34A87C911653124F00E8EF2E /* Default.png */,
-				34A87C931653124F00E8EF2E /* Default@2x.png */,
-				34A87C951653124F00E8EF2E /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -242,6 +270,7 @@
 				34A87C921653124F00E8EF2E /* Default.png in Resources */,
 				34A87C941653124F00E8EF2E /* Default@2x.png in Resources */,
 				34A87C961653124F00E8EF2E /* Default-568h@2x.png in Resources */,
+				345F52AB1676D78700310EB3 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +308,10 @@
 				34A87C8C1653124F00E8EF2E /* main.m in Sources */,
 				34A87C901653124F00E8EF2E /* KMAppDelegate.m in Sources */,
 				34A87C9F1653124F00E8EF2E /* KMViewController.m in Sources */,
-				3455177B16584E7700A9020B /* GradientButton.m in Sources */,
+				3487298916754C7C004A5890 /* KMweightView.m in Sources */,
+				3487298E16756DB3004A5890 /* Model.xcdatamodeld in Sources */,
+				348729941675783B004A5890 /* WeightData.m in Sources */,
+				3487299716757A17004A5890 /* KMweightDataManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,6 +492,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3487298B16756DB3004A5890 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3487298C16756DB3004A5890 /* Model.xcdatamodel */,
+			);
+			currentVersion = 3487298C16756DB3004A5890 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 34A87C721653124F00E8EF2E /* Project object */;
 }
