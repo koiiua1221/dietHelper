@@ -10,6 +10,7 @@
 #import "KMweightView.h"
 #import "WeightData.h"
 #import "KMweightDataManager.h"
+#import "KMDataTableViewController.h"
 
 @interface KMViewController ()
 @end
@@ -25,6 +26,7 @@ UIBarButtonItem *rightArrowlItem_;
 UIBarButtonItem *spacer;
 NSDateFormatter *df;
 BOOL isSaved;
+KMDataTableViewController *DataTableViewController;
 
 @implementation KMViewController
 
@@ -69,7 +71,7 @@ BOOL isSaved;
 
   savelItem_ = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonTap)];
   
-  rightArrowlItem_ = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:nil] ;
+  rightArrowlItem_ = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(arrowButtonTap)] ;
 
 }
 
@@ -204,6 +206,10 @@ BOOL isSaved;
 
   self.editing = false;
   isSaved = true;
+}
+-(void)arrowButtonTap{
+  DataTableViewController = [[KMDataTableViewController alloc] init];
+  [self.navigationController pushViewController:DataTableViewController animated:YES];
 }
 -(void)redoPvValue{
   [piv selectRow:weightView.weight100Label.text.intValue inComponent:0 animated:NO];

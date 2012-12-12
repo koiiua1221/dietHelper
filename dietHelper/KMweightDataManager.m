@@ -90,7 +90,6 @@ static KMweightDataManager*  _sharedInstance = nil;
 
 }
 
-
 - (NSArray*)sortedWeightData
 {
   // 管理対象オブジェクトコンテキストを取得する
