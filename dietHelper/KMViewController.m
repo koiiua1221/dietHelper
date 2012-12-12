@@ -122,8 +122,13 @@ BOOL isSaved;
     weightView.weight10Label.text = weightData.weight010;
     weightView.weight1Label.text = weightData.weight001;
     weightView.weight01Label.text = weightData.weight000_1;
-    NSString *str = [df stringFromDate:weightData.date];
-    weightView.dayLabel.text = str;
+    
+    weightView.dayLabel.text = [df stringFromDate:weightData.date];
+    
+    [piv selectRow:weightData.weight100.intValue inComponent:0 animated:NO];
+    [piv selectRow:weightData.weight010.intValue inComponent:1 animated:NO];
+    [piv selectRow:weightData.weight001.intValue inComponent:2 animated:NO];
+    [piv selectRow:weightData.weight000_1.intValue inComponent:4 animated:NO];
   }
 
   WeightData* compareWeightData;
@@ -133,8 +138,8 @@ BOOL isSaved;
     compareWeightView.weight10Label.text = compareWeightData.weight010;
     compareWeightView.weight1Label.text = compareWeightData.weight001;
     compareWeightView.weight01Label.text = compareWeightData.weight000_1;
-    NSString *str = [df stringFromDate:compareWeightData.date];
-    compareWeightView.dayLabel.text = str;
+    
+    compareWeightView.dayLabel.text = [df stringFromDate:compareWeightData.date];
   }
   
 }
@@ -198,10 +203,7 @@ BOOL isSaved;
   weightView.weight1Label.text = [NSString stringWithFormat:@"%d",[piv selectedRowInComponent:2]];
   weightView.weight01Label.text = [NSString stringWithFormat:@"%d",[piv selectedRowInComponent:4]];
   
-//  NSDateFormatter *df = [[NSDateFormatter alloc] init];
-//  df.dateFormat  = @"yy/MM/dd HH:mm:ss";
-  NSString *str = [df stringFromDate:[NSDate date]];
-  weightView.dayLabel.text = str;
+  weightView.dayLabel.text = [df stringFromDate:[NSDate date]];
 }
 -(void)weightBefore{
   compareWeightView.weight100Label.text = weightView.weight100Label.text;
