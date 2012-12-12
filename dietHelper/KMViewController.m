@@ -24,6 +24,7 @@ UIBarButtonItem *savelItem_;
 UIBarButtonItem *rightArrowlItem_;
 UIBarButtonItem *spacer;
 NSDateFormatter *df;
+BOOL isSaved;
 
 @implementation KMViewController
 
@@ -178,16 +179,18 @@ NSDateFormatter *df;
   IsPickerViewHidden = true;
 }
 -(void)saveButtonTap{
-  [self hidePicker];
   [self weightBefore];
   [self weightNow];
   [self _saveWeight];
 
   self.editing = false;
+  isSaved = true;
 }
--(void)cancelButtonTap{
-  [self hidePicker];
-  self.editing = false;
+-(void)redoPvValue{
+  [piv selectRow:weightView.weight100Label.text.intValue inComponent:0 animated:NO];
+  [piv selectRow:weightView.weight10Label.text.intValue inComponent:1 animated:NO];
+  [piv selectRow:weightView.weight1Label.text.intValue inComponent:2 animated:NO];
+  [piv selectRow:weightView.weight01Label.text.intValue inComponent:4 animated:NO];
 }
 -(void)weightNow{
   weightView.weight100Label.text = [NSString stringWithFormat:@"%d",[piv selectedRowInComponent:0]];
@@ -221,6 +224,13 @@ NSDateFormatter *df;
     [self setToolbarItems:toolbarItems_ animated:NO];
 
   }else{
+    //ToDo 要リファクタリング
+    if (isSaved) {
+      isSaved = false;
+    }else{
+      [self redoPvValue];
+    }
+      
     [self hidePicker];
 
     UIToolbar *myToolbar = self.navigationController.toolbar;
