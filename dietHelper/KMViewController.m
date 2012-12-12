@@ -142,8 +142,7 @@ BOOL isSaved;
     
     NSString *Datestr = [self getDateStr:compareWeightData.date];
     compareWeightView.dayLabel.text = [Datestr stringByAppendingString:[df stringFromDate:compareWeightData.date]];
-}
-  
+  }
 }
 
 - (NSString*)getDateStr:(NSDate*)date {
@@ -217,8 +216,8 @@ BOOL isSaved;
   weightView.weight10Label.text = [NSString stringWithFormat:@"%d",[piv selectedRowInComponent:1]];
   weightView.weight1Label.text = [NSString stringWithFormat:@"%d",[piv selectedRowInComponent:2]];
   weightView.weight01Label.text = [NSString stringWithFormat:@"%d",[piv selectedRowInComponent:4]];
-  
-  weightView.dayLabel.text = [df stringFromDate:[NSDate date]];
+  NSString *Datestr = [self getDateStr:[NSDate date]];
+  weightView.dayLabel.text = [Datestr stringByAppendingString:[df stringFromDate:[NSDate date]]];
 }
 -(void)weightBefore{
   compareWeightView.weight100Label.text = weightView.weight100Label.text;
