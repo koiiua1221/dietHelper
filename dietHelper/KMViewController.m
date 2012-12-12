@@ -46,7 +46,7 @@ BOOL isSaved;
   [self.view addSubview:dayLabel];
 
   df = [[NSDateFormatter alloc] init];
-  df.dateFormat  = @"yy/MM/dd HH:mm:ss";
+  df.dateFormat  = @"HH:mm:ss";
   weightView = [[KMweightView alloc]initWithFrame:CGRectMake(10, 140, WEIGHT_VIEW_WIDTH, WEIGHT_VIEW_HEIGHT) borderColor:[UIColor whiteColor].CGColor textColor:[UIColor whiteColor]];
 
   [self.view addSubview:weightView];
@@ -123,7 +123,8 @@ BOOL isSaved;
     weightView.weight1Label.text = weightData.weight001;
     weightView.weight01Label.text = weightData.weight000_1;
     
-    weightView.dayLabel.text = [df stringFromDate:weightData.date];
+    NSString *Datestr = [self getDateStr:weightData.date];
+    weightView.dayLabel.text = [Datestr stringByAppendingString:[df stringFromDate:weightData.date]];
     
     [piv selectRow:weightData.weight100.intValue inComponent:0 animated:NO];
     [piv selectRow:weightData.weight010.intValue inComponent:1 animated:NO];
@@ -139,9 +140,23 @@ BOOL isSaved;
     compareWeightView.weight1Label.text = compareWeightData.weight001;
     compareWeightView.weight01Label.text = compareWeightData.weight000_1;
     
-    compareWeightView.dayLabel.text = [df stringFromDate:compareWeightData.date];
-  }
+    NSString *Datestr = [self getDateStr:compareWeightData.date];
+    compareWeightView.dayLabel.text = [Datestr stringByAppendingString:[df stringFromDate:compareWeightData.date]];
+}
   
+}
+
+- (NSString*)getDateStr:(NSDate*)date {
+  NSTimeInterval  since = [[NSDate date] timeIntervalSinceDate:date];
+  NSInteger sinceDay = since/(24*60*60);
+
+  NSString *Datestr;
+  if (sinceDay == 0) {
+    Datestr = @"今日 ";
+  }else{
+    Datestr = [NSString stringWithFormat:@"%d日前 ",sinceDay];
+  }
+  return Datestr;
 }
 
 - (void)viewDidAppear:(BOOL)animated
