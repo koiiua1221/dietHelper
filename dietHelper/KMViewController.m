@@ -230,7 +230,13 @@ KMDataTableViewController *DataTableViewController;
   compareWeightView.weight10Label.text = weightView.weight10Label.text;
   compareWeightView.weight1Label.text = weightView.weight1Label.text;
   compareWeightView.weight01Label.text = weightView.weight01Label.text;
-  compareWeightView.dayLabel.text = weightView.dayLabel.text;
+//データ保存前のタイミングなのでlast dataを利用する。
+  WeightData* weightData;
+  weightData = [[KMweightDataManager sharedManager] lastWeightData];
+  NSString *Datestr = [self getDateStr:weightData.date];
+  compareWeightView.dayLabel.text = [Datestr stringByAppendingString:[df stringFromDate:weightData.date]];
+
+//  compareWeightView.dayLabel.text = weightView.dayLabel.text;
 }
 
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated
