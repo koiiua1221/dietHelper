@@ -20,7 +20,8 @@
 - (WeightData*)insertNewWeightData;
 - (WeightData*)lastWeightData;
 - (WeightData*)compareWeightData;
-- (NSArray*)sortedWeightData;
+- (NSMutableArray*)sortedWeightData;
 - (void)save;
+- (void)removeWeightDataAtIndex:(unsigned int)index;
 
 @end

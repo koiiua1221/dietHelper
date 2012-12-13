@@ -90,7 +90,7 @@ static KMweightDataManager*  _sharedInstance = nil;
 
 }
 
-- (NSArray*)sortedWeightData
+- (NSMutableArray*)sortedWeightData
 {
   // 管理対象オブジェクトコンテキストを取得する
   NSManagedObjectContext* context;
@@ -107,9 +107,9 @@ static KMweightDataManager*  _sharedInstance = nil;
   [request setSortDescriptors:[NSArray arrayWithObjects:sortDescriptor, nil]];
   
   // 取得要求を実行する
-  NSArray*    result;
+  NSMutableArray*    result;
   NSError*    error = nil;
-  result = [context executeFetchRequest:request error:&error];
+  result = [[context executeFetchRequest:request error:&error] mutableCopy];
   if (!result) {
     // エラー
     NSLog(@"executeFetchRequest: failed, %@", [error localizedDescription]);
@@ -126,7 +126,6 @@ static KMweightDataManager*  _sharedInstance = nil;
   NSManagedObjectContext* context;
   context = self.managedObjectContext;
   
-  // チャンネルを作成する
   WeightData* weightData;
   weightData = [NSEntityDescription insertNewObjectForEntityForName:@"Weight"
                 
@@ -169,10 +168,6 @@ static KMweightDataManager*  _sharedInstance = nil;
   
   // チャンネルを作成する
   WeightData* weightData;
-  weightData = [NSEntityDescription insertNewObjectForEntityForName:@"Weight"
-                
-                                             inManagedObjectContext:context];
-  // インデックスを設定する
   NSArray*    sortedweightData;
   sortedweightData = self.sortedWeightData;
   int count = [sortedweightData count];
@@ -197,6 +192,23 @@ static KMweightDataManager*  _sharedInstance = nil;
     // エラー
     NSLog(@"Error, %@", error);
   }
+}
+
+- (void)removeWeightDataAtIndex:(unsigned int)index
+{
+  
+  
+  // 引数を確認する
+  NSMutableArray*    sortedweightData;
+  sortedweightData = self.sortedWeightData;
+
+  if (index > [sortedweightData count] - 1) {
+    return;
+  }
+  
+//  [sortedweightData removeObjectAtIndex:index];
+  NSManagedObject * delData = [sortedweightData objectAtIndex:index];
+  [_managedObjectContext deleteObject:delData];
 }
 
 

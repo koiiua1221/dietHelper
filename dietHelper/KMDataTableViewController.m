@@ -14,6 +14,8 @@
 @interface KMDataTableViewController ()
 
 @end
+NSMutableArray *toolbarItems_;
+UIBarButtonItem *spacer;
 
 @implementation KMDataTableViewController
 
@@ -43,7 +45,24 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+  [super viewWillAppear:animated];
+  [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow]animated:animated];
+  for (UITableViewCell* cell in [self.tableView visibleCells]) {
+    [self _updateCell:cell atIndexPath:[self.tableView indexPathForCell:cell]];
+  }
+  spacer = [[UIBarButtonItem alloc]
+            initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+            target:nil action:nil];
+  
+  toolbarItems_ = [NSMutableArray arrayWithObjects:self.editButtonItem,spacer,spacer, spacer, nil];
+  [self setToolbarItems:toolbarItems_ animated:NO];
+  
+  [self.navigationController setToolbarHidden:NO animated:NO];
+  self.navigationController.toolbar.tintColor = [UIColor blackColor];
 
+}
 #pragma mark - Table view data source
 /*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -57,8 +76,8 @@
 {
 #warning Incomplete method implementation.
     // Return the number of rows in the section.
-  
-    return [[KMweightDataManager sharedManager]sortedWeightData].count;
+    NSInteger count = [[KMweightDataManager sharedManager]sortedWeightData].count;
+    return count;
 
 }
 
@@ -73,28 +92,29 @@
   return cell;
 }
 
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+      [[KMweightDataManager sharedManager] removeWeightDataAtIndex:indexPath.row];
+      [[KMweightDataManager sharedManager] save];
         // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//      [tableView beginUpdates];
+//      [tableView.7]
+      [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//      [tableView endUpdates];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.
@@ -132,13 +152,14 @@
   
 }
 
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.
     /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     ; *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
