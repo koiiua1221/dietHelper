@@ -20,13 +20,13 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "dietHelper/KMAppDelegate.m"
-         timestampString = "376706995.913625"
+         filePath = "dietHelper/KMViewController.m"
+         timestampString = "376985328.481583"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "16"
-         endingLineNumber = "16"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         startingLineNumber = "182"
+         endingLineNumber = "182"
+         landmarkName = "-showPicker"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -34,55 +34,50 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "dietHelper/KMViewController.m"
-         timestampString = "376969953.604848"
+         timestampString = "376985328.481583"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "162"
-         endingLineNumber = "162">
+         startingLineNumber = "192"
+         endingLineNumber = "192"
+         landmarkName = "-showPicker"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "dietHelper/KMViewController.m"
-         timestampString = "376969953.604848"
+         timestampString = "376985328.481583"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "172"
-         endingLineNumber = "172">
+         startingLineNumber = "210"
+         endingLineNumber = "210"
+         landmarkName = "-arrowButtonTap"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "dietHelper/KMViewController.m"
-         timestampString = "376969953.604848"
+         timestampString = "376985328.481583"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "189"
-         endingLineNumber = "189">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "dietHelper/KMViewController.m"
-         timestampString = "376967934.707771"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "76"
-         endingLineNumber = "76">
+         startingLineNumber = "78"
+         endingLineNumber = "78"
+         landmarkName = "-_saveWeight"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "dietHelper/KMweightDataManager.m"
-         timestampString = "376817969.553479"
+         timestampString = "376987218.811926"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "124"
-         endingLineNumber = "124"
+         startingLineNumber = "123"
+         endingLineNumber = "123"
          landmarkName = "-insertNewWeightData"
          landmarkType = "5">
       </FileBreakpoint>
@@ -104,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "dietHelper/KMweightDataManager.m"
-         timestampString = "376817969.553479"
+         timestampString = "376987218.811926"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "136"
-         endingLineNumber = "136"
+         startingLineNumber = "135"
+         endingLineNumber = "135"
          landmarkName = "-insertNewWeightData"
          landmarkType = "5">
       </FileBreakpoint>
@@ -117,11 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "dietHelper/KMweightDataManager.m"
-         timestampString = "376821852.859573"
+         timestampString = "376987218.811926"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "193"
-         endingLineNumber = "193"
+         startingLineNumber = "192"
+         endingLineNumber = "192"
          landmarkName = "-save"
          landmarkType = "5">
       </FileBreakpoint>
@@ -143,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "dietHelper/KMweightDataManager.m"
-         timestampString = "376818343.771001"
+         timestampString = "376987218.811926"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "138"
-         endingLineNumber = "138"
+         startingLineNumber = "137"
+         endingLineNumber = "137"
          landmarkName = "-insertNewWeightData"
          landmarkType = "5">
       </FileBreakpoint>
@@ -156,11 +151,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "dietHelper/KMweightDataManager.m"
-         timestampString = "376821852.859573"
+         timestampString = "376987218.811926"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "154"
-         endingLineNumber = "154"
+         startingLineNumber = "153"
+         endingLineNumber = "153"
          landmarkName = "-lastWeightData"
          landmarkType = "5">
       </FileBreakpoint>
@@ -182,23 +177,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "dietHelper/KMViewController.m"
-         timestampString = "376967934.707771"
+         timestampString = "376985328.481583"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "33"
-         endingLineNumber = "33">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "dietHelper/KMAppDelegate.m"
-         timestampString = "376883081.580479"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "13"
-         endingLineNumber = "13"
-         landmarkName = "-application:didFinishLaunchingWithOptions:"
+         startingLineNumber = "35"
+         endingLineNumber = "35"
+         landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -217,22 +201,52 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "dietHelper/KMViewController.m"
-         timestampString = "376969953.604848"
+         timestampString = "376985328.481583"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "194"
-         endingLineNumber = "194">
+         startingLineNumber = "218"
+         endingLineNumber = "218"
+         landmarkName = "-redoPvValue"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "dietHelper/KMViewController.m"
-         timestampString = "376969953.604848"
+         timestampString = "376985328.481583"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "236"
-         endingLineNumber = "236">
+         startingLineNumber = "261"
+         endingLineNumber = "261"
+         landmarkName = "-setEditing:animated:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "dietHelper/KMViewController.m"
+         timestampString = "376985328.481583"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "130"
+         endingLineNumber = "130"
+         landmarkName = "-viewWillAppear:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "dietHelper/KMViewController.m"
+         timestampString = "376985328.481583"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "154"
+         endingLineNumber = "154"
+         landmarkName = "-getDateStr:"
+         landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
