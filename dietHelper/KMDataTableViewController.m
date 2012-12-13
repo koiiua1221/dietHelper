@@ -9,6 +9,7 @@
 #import "KMDataTableViewController.h"
 #import "KMweightDataManager.h"
 #import "WeightData.h"
+#import "KMweightDataListCell.h"
 
 @interface KMDataTableViewController ()
 
@@ -34,8 +35,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-
-  self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor blackColor];
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,9 +65,9 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"DataTableView";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    KMweightDataListCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
   if (!cell) {
-    cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    cell = [[KMweightDataListCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
   }
   [self _updateCell:cell atIndexPath:indexPath];
   return cell;
@@ -113,9 +113,8 @@
 */
 - (void)_updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
-  // セルのキャスト
-//  RSSChannelCell* channelCell;
-//  channelCell = (RSSChannelCell*)cell;
+  KMweightDataListCell* weightDataListCell;
+  weightDataListCell = (KMweightDataListCell*)cell;
   
   // 指定された行のチャンネルの取得
   NSArray*    weightDataArray;
@@ -129,9 +128,8 @@
   df = [[NSDateFormatter alloc] init];
   df.dateFormat  = @"yyyy/MM/dd HH:mm:ss";
   
-  cell.textLabel.text = [df stringFromDate:weightData.date];
-  cell.textLabel.textColor = [UIColor whiteColor];
-    
+  weightDataListCell.textLabel.text = [df stringFromDate:weightData.date];
+  
 }
 
 #pragma mark - Table view delegate
