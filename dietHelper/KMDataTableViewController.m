@@ -10,6 +10,7 @@
 #import "KMweightDataManager.h"
 #import "WeightData.h"
 #import "KMweightDataListCell.h"
+#import "KMInsertWeightDataViewController.h"
 
 @interface KMDataTableViewController ()
 
@@ -39,7 +40,11 @@ UIBarButtonItem *addItem;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.view.backgroundColor = [UIColor blackColor];
-    addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addRow:)];
+    addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addRow)];
+    spacer = [[UIBarButtonItem alloc]
+            initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+            target:nil action:nil];
+    self.title = @"リスト";
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,10 +59,6 @@ UIBarButtonItem *addItem;
   for (UITableViewCell* cell in [self.tableView visibleCells]) {
     [self _updateCell:cell atIndexPath:[self.tableView indexPathForCell:cell]];
   }
-  spacer = [[UIBarButtonItem alloc]
-            initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-            target:nil action:nil];
-  
   toolbarItems_ = [NSMutableArray arrayWithObjects:self.editButtonItem,spacer,spacer, spacer, nil];
   [self setToolbarItems:toolbarItems_ animated:NO];
   
@@ -157,14 +158,22 @@ UIBarButtonItem *addItem;
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
   [super setEditing:editing animated:animated];
   [self.tableView setEditing:editing animated:YES];
-  if (editing) { // 現在編集モードです。
-    [self.navigationItem setLeftBarButtonItem:addItem animated:YES]; // 追加ボタンを表示します。
-  } else { // 現在通常モードです。
-    [self.navigationItem setLeftBarButtonItem:nil animated:YES]; // 追加ボタンを非表示にします。
+  if (editing) {
+    [self.navigationItem setRightBarButtonItem:addItem animated:YES];
+  } else {
+    [self.navigationItem setRightBarButtonItem:nil animated:YES];
   }
 }
 - (void)addRow {
+  [self.tableView setEditing:false animated:YES];
+  [self.navigationItem setRightBarButtonItem:nil animated:YES];
   
+  KMInsertWeightDataViewController *InsertWeightDataView = [[KMInsertWeightDataViewController alloc]init];
+  InsertWeightDataView.delegate = self;
+  UINavigationController *navController;
+  navController = [[UINavigationController alloc]initWithRootViewController:InsertWeightDataView];
+  navController.modalPresentationStyle=UIModalPresentationFormSheet;
+  [self presentViewController: navController animated:YES completion: ^{NSLog(@"完了");}];
 }
 #pragma mark - Table view delegate
 
@@ -172,11 +181,15 @@ UIBarButtonItem *addItem;
 {
     // Navigation logic may go here. Create and push another view controller.
     /*
-     ; *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     ; *detailViewController = [[i alloc] initWithNibName:@"i" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
-
+#pragma mark - InsertWeightDataViewController delegate
+- (void)InsertWeightDataViewControllerDidSave:(KMInsertWeightDataViewController*)controller
+{
+  [controller dismissViewControllerAnimated:YES completion:^{NSLog(@"完了");}];
+}
 @end

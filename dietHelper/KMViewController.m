@@ -14,7 +14,7 @@
 
 @interface KMViewController ()
 @end
-UIPickerView *piv;
+UIPickerView *weightPiv;
 KMweightView *weightView;
 KMweightView *compareWeightView;
 UIButton *footerButton;
@@ -40,7 +40,8 @@ UILabel *diffLabel;
   gradient.frame = self.view.bounds;
   gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:1.0] CGColor], (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0] CGColor], nil];
   [self.view.layer insertSublayer:gradient atIndex:0];
-
+  self.title = @"記録";
+  
   df = [[NSDateFormatter alloc] init];
   df.dateFormat  = @"HH:mm:ss";
   weightView = [[KMweightView alloc]initWithFrame:CGRectMake(10, 233, WEIGHT_VIEW_WIDTH, WEIGHT_VIEW_HEIGHT) borderColor:[UIColor whiteColor].CGColor textColor:[UIColor whiteColor]];
@@ -56,22 +57,28 @@ UILabel *diffLabel;
   diffLabel.textAlignment = UITextAlignmentRight;
   [self.view addSubview:diffLabel];
 
-  piv = [[UIPickerView alloc] init];
-  piv.delegate = self;
-  piv.dataSource = self;
-  piv.backgroundColor = [UIColor blackColor];
-  piv.alpha = 1.0;
-  piv.showsSelectionIndicator = YES;
-  [piv selectRow:0 inComponent:0 animated:NO];
-  [piv selectRow:1 inComponent:1 animated:NO];
-  [piv selectRow:2 inComponent:2 animated:NO];
-  [piv selectRow:4 inComponent:4 animated:NO];
-  [self.view addSubview:piv];
-  [self hidePicker];
+	[UIView commitAnimations];
 
+  CGRect viewFrame = self.view.bounds;
+  IsPickerViewHidden = true;
+  weightPiv = [[UIPickerView alloc] initWithFrame:CGRectMake(0, viewFrame.size.height, KM_PICKER_WEIGHT, KM_PICKER_HEIGHT)];
+  weightPiv.delegate = self;
+  weightPiv.dataSource = self;
+  weightPiv.backgroundColor = [UIColor blackColor];
+  weightPiv.alpha = 1.0;
+  weightPiv.showsSelectionIndicator = YES;
+  [weightPiv selectRow:0 inComponent:0 animated:NO];
+  [weightPiv selectRow:1 inComponent:1 animated:NO];
+  [weightPiv selectRow:2 inComponent:2 animated:NO];
+  [weightPiv selectRow:4 inComponent:4 animated:NO];
+  [self.view addSubview:weightPiv];
+  
   savelItem_ = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonTap)];
   
   rightArrowlItem_ = [[UIBarButtonItem alloc]initWithTitle:@"一覧" style:UIBarButtonItemStyleBordered target:self action:@selector(arrowButtonTap)] ;
+  spacer = [[UIBarButtonItem alloc]
+            initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
+            target:nil action:nil];
 
 }
 
@@ -105,10 +112,6 @@ UILabel *diffLabel;
 
   self.navigationController.navigationBar.tintColor  = [UIColor blackColor];
 
-  spacer = [[UIBarButtonItem alloc]
-                             initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace
-                             target:nil action:nil];
-
   toolbarItems_ = [NSMutableArray arrayWithObjects:self.editButtonItem,spacer,spacer, spacer, nil];
   [self setToolbarItems:toolbarItems_ animated:NO];
   
@@ -128,10 +131,10 @@ UILabel *diffLabel;
     NSString *Datestr = [self getDateStr:weightData.date];
     weightView.dayLabel.text = [Datestr stringByAppendingString:[df stringFromDate:weightData.date]];
     
-    [piv selectRow:weightData.weight100.intValue inComponent:0 animated:NO];
-    [piv selectRow:weightData.weight010.intValue inComponent:1 animated:NO];
-    [piv selectRow:weightData.weight001.intValue inComponent:2 animated:NO];
-    [piv selectRow:weightData.weight000_1.intValue inComponent:4 animated:NO];
+    [weightPiv selectRow:weightData.weight100.intValue inComponent:0 animated:NO];
+    [weightPiv selectRow:weightData.weight010.intValue inComponent:1 animated:NO];
+    [weightPiv selectRow:weightData.weight001.intValue inComponent:2 animated:NO];
+    [weightPiv selectRow:weightData.weight000_1.intValue inComponent:4 animated:NO];
   }
 
   WeightData* compareWeightData;
@@ -200,7 +203,7 @@ UILabel *diffLabel;
   CGRect bounds = [[UIScreen mainScreen]bounds];
   CGFloat screenHeight = bounds.size.height;
   CGFloat pvy = screenHeight-toolbarHeight-KM_PICKER_HEIGHT*2.5;
-  piv.frame = CGRectMake(0, pvy, KM_PICKER_WEIGHT, KM_PICKER_HEIGHT);
+  weightPiv.frame = CGRectMake(0, pvy, KM_PICKER_WEIGHT, KM_PICKER_HEIGHT);
   
 	[UIView commitAnimations];
 	IsPickerViewHidden = false;
@@ -211,7 +214,7 @@ UILabel *diffLabel;
 	[UIView beginAnimations:nil context:NULL];
 	[UIView setAnimationDuration:0.4];
 	[UIView setAnimationDelegate:self];
-  piv.frame = CGRectMake(0, 480, KM_PICKER_WEIGHT, KM_PICKER_HEIGHT);	[UIView commitAnimations];
+  weightPiv.frame = CGRectMake(0, 480, KM_PICKER_WEIGHT, KM_PICKER_HEIGHT);	[UIView commitAnimations];
   IsPickerViewHidden = true;
 }
 -(void)saveButtonTap{
@@ -229,16 +232,16 @@ UILabel *diffLabel;
   [self.navigationController pushViewController:DataTableViewController animated:YES];
 }
 -(void)redoPvValue{
-  [piv selectRow:weightView.weight100Label.text.intValue inComponent:0 animated:NO];
-  [piv selectRow:weightView.weight10Label.text.intValue inComponent:1 animated:NO];
-  [piv selectRow:weightView.weight1Label.text.intValue inComponent:2 animated:NO];
-  [piv selectRow:weightView.weight01Label.text.intValue inComponent:4 animated:NO];
+  [weightPiv selectRow:weightView.weight100Label.text.intValue inComponent:0 animated:NO];
+  [weightPiv selectRow:weightView.weight10Label.text.intValue inComponent:1 animated:NO];
+  [weightPiv selectRow:weightView.weight1Label.text.intValue inComponent:2 animated:NO];
+  [weightPiv selectRow:weightView.weight01Label.text.intValue inComponent:4 animated:NO];
 }
 -(void)weightNow{
-  weightView.weight100Label.text = [NSString stringWithFormat:@"%d",[piv selectedRowInComponent:0]];
-  weightView.weight10Label.text = [NSString stringWithFormat:@"%d",[piv selectedRowInComponent:1]];
-  weightView.weight1Label.text = [NSString stringWithFormat:@"%d",[piv selectedRowInComponent:2]];
-  weightView.weight01Label.text = [NSString stringWithFormat:@"%d",[piv selectedRowInComponent:4]];
+  weightView.weight100Label.text = [NSString stringWithFormat:@"%d",[weightPiv selectedRowInComponent:0]];
+  weightView.weight10Label.text = [NSString stringWithFormat:@"%d",[weightPiv selectedRowInComponent:1]];
+  weightView.weight1Label.text = [NSString stringWithFormat:@"%d",[weightPiv selectedRowInComponent:2]];
+  weightView.weight01Label.text = [NSString stringWithFormat:@"%d",[weightPiv selectedRowInComponent:4]];
   NSString *Datestr = [self getDateStr:[NSDate date]];
   weightView.dayLabel.text = [Datestr stringByAppendingString:[df stringFromDate:[NSDate date]]];
 }
