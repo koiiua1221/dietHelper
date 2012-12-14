@@ -16,6 +16,7 @@
 @end
 NSMutableArray *toolbarItems_;
 UIBarButtonItem *spacer;
+UIBarButtonItem *addItem;
 
 @implementation KMDataTableViewController
 
@@ -38,6 +39,7 @@ UIBarButtonItem *spacer;
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     self.view.backgroundColor = [UIColor blackColor];
+    addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addRow:)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -152,7 +154,18 @@ UIBarButtonItem *spacer;
   
 }
 
-
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+  [super setEditing:editing animated:animated];
+  [self.tableView setEditing:editing animated:YES];
+  if (editing) { // 現在編集モードです。
+    [self.navigationItem setLeftBarButtonItem:addItem animated:YES]; // 追加ボタンを表示します。
+  } else { // 現在通常モードです。
+    [self.navigationItem setLeftBarButtonItem:nil animated:YES]; // 追加ボタンを非表示にします。
+  }
+}
+- (void)addRow {
+  
+}
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

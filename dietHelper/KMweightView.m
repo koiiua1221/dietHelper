@@ -14,6 +14,8 @@
 @synthesize weight1Label;
 @synthesize weight01Label;
 @synthesize dayLabel;
+@synthesize commaLabel;
+@synthesize kgLabel;
 
 - (id)initWithFrame:(CGRect)frame borderColor:(CGColorRef)borderColor textColor:(UIColor*)textColor;
 {
@@ -51,7 +53,9 @@
     self.weight100Label = tmpLbl[0];
     self.weight10Label = tmpLbl[1];
     self.weight1Label = tmpLbl[2];
+    self.commaLabel = tmpLbl[3];
     self.weight01Label = tmpLbl[4];
+    self.kgLabel = tmpLbl[5];
     
     self.dayLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, DATE_LBL_WIDTH, DATE_LBL_HEIGHT)];
     self.dayLabel.backgroundColor = [UIColor clearColor];

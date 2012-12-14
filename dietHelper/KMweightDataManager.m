@@ -211,5 +211,26 @@ static KMweightDataManager*  _sharedInstance = nil;
   [_managedObjectContext deleteObject:delData];
 }
 
+/*
+- (NSArray *)dailyDataFromDate:(NSDate *)from_date {
+  NSCalendar *calendar= [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+  
+  //①
+  NSDateComponents *initComponents = [calendar components:(NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit) fromDate:from_date];
+  //②
+  NSDateComponents *componentsToAdd = [[NSDateComponents alloc] init];
+  NSDateComponents *componentsToSubtract = [[NSDateComponents alloc] init];
 
+  [componentsToSubtract setDay:+1];
+  
+  NSDate *fromDate = [calendar dateFromComponents:initComponents];
+  NSDate *toDate = [calendar dateByAddingComponents: componentsToAdd toDate:fromDate options:0];
+  
+  NSPredicate *requestPredicate = [NSPredicate predicateWithFormat:@"(timeStamp >= %@ ) and (timeStamp < %@)",fromDate,toDate];
+  //③
+  NSArray *matchingFetchedObjects = [fetchedResultsController.fetchedObjects filteredArrayUsingPredicate:requestPredicate];
+
+  return matchingFetchedObjects;
+}
+*/
 @end

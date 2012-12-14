@@ -17,7 +17,6 @@
 UIPickerView *piv;
 KMweightView *weightView;
 KMweightView *compareWeightView;
-UILabel *dayLabel;
 UIButton *footerButton;
 BOOL IsPickerViewHidden;
 NSMutableArray *toolbarItems_;
@@ -27,6 +26,7 @@ UIBarButtonItem *spacer;
 NSDateFormatter *df;
 BOOL isSaved;
 KMDataTableViewController *DataTableViewController;
+UILabel *diffLabel;
 
 @implementation KMViewController
 
@@ -41,21 +41,21 @@ KMDataTableViewController *DataTableViewController;
   gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:1.0] CGColor], (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0] CGColor], nil];
   [self.view.layer insertSublayer:gradient atIndex:0];
 
-  dayLabel = [[UILabel alloc]init];
-  dayLabel.frame = CGRectMake(0, 0, 150, 30);
-  dayLabel.backgroundColor = [UIColor clearColor];
-  dayLabel.textColor = [UIColor whiteColor];
-  [self.view addSubview:dayLabel];
-
   df = [[NSDateFormatter alloc] init];
   df.dateFormat  = @"HH:mm:ss";
-  weightView = [[KMweightView alloc]initWithFrame:CGRectMake(10, 140, WEIGHT_VIEW_WIDTH, WEIGHT_VIEW_HEIGHT) borderColor:[UIColor whiteColor].CGColor textColor:[UIColor whiteColor]];
+  weightView = [[KMweightView alloc]initWithFrame:CGRectMake(10, 233, WEIGHT_VIEW_WIDTH, WEIGHT_VIEW_HEIGHT) borderColor:[UIColor whiteColor].CGColor textColor:[UIColor whiteColor]];
 
   [self.view addSubview:weightView];
-
+  
   compareWeightView = [[KMweightView alloc]initWithFrame:CGRectMake(10, 70, WEIGHT_VIEW_WIDTH, WEIGHT_VIEW_HEIGHT) borderColor:[UIColor whiteColor].CGColor textColor:[UIColor whiteColor]];
   [self.view addSubview:compareWeightView];
-  
+
+  diffLabel = [[UILabel alloc]initWithFrame:CGRectMake(160, 70+WEIGHT_VIEW_HEIGHT+40, 160-10, 40)];
+  diffLabel.font = [UIFont fontWithName:@"AppleGothic" size:20];
+  diffLabel.backgroundColor = [UIColor clearColor];
+  diffLabel.textAlignment = UITextAlignmentRight;
+  [self.view addSubview:diffLabel];
+
   piv = [[UIPickerView alloc] init];
   piv.delegate = self;
   piv.dataSource = self;
@@ -71,7 +71,7 @@ KMDataTableViewController *DataTableViewController;
 
   savelItem_ = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveButtonTap)];
   
-  rightArrowlItem_ = [[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFastForward target:self action:@selector(arrowButtonTap)] ;
+  rightArrowlItem_ = [[UIBarButtonItem alloc]initWithTitle:@"一覧" style:UIBarButtonItemStyleBordered target:self action:@selector(arrowButtonTap)] ;
 
 }
 
@@ -145,8 +145,23 @@ KMDataTableViewController *DataTableViewController;
     NSString *Datestr = [self getDateStr:compareWeightData.date];
     compareWeightView.dayLabel.text = [Datestr stringByAppendingString:[df stringFromDate:compareWeightData.date]];
   }
-}
+  [self setNowWeightLabelColor];
+  [self setDiffWeight];
 
+}
+- (void)setDiffWeight {
+  float newWeight = [self NewWeight];
+  float oldWeight = [self OldWeight];
+  if (newWeight > oldWeight) {
+    diffLabel.textColor = [UIColor redColor];
+  }else if (newWeight < oldWeight){
+    diffLabel.textColor = [UIColor blueColor];
+  }else{
+    diffLabel.textColor = [UIColor whiteColor];
+  }
+  diffLabel.text = [NSString stringWithFormat:@"差分：%0.1f",newWeight-oldWeight];
+
+}
 - (NSString*)getDateStr:(NSDate*)date {
   NSTimeInterval  since = [[NSDate date] timeIntervalSinceDate:date];
   NSInteger sinceDay = since/(24*60*60);
@@ -202,6 +217,8 @@ KMDataTableViewController *DataTableViewController;
 -(void)saveButtonTap{
   [self weightBefore];
   [self weightNow];
+  [self setNowWeightLabelColor];
+  [self setDiffWeight];
   [self _saveWeight];
 
   self.editing = false;
@@ -236,7 +253,6 @@ KMDataTableViewController *DataTableViewController;
   NSString *Datestr = [self getDateStr:weightData.date];
   compareWeightView.dayLabel.text = [Datestr stringByAppendingString:[df stringFromDate:weightData.date]];
 
-//  compareWeightView.dayLabel.text = weightView.dayLabel.text;
 }
 
 -(void)setEditing:(BOOL)editing animated:(BOOL)animated
@@ -269,6 +285,49 @@ KMDataTableViewController *DataTableViewController;
     [self.navigationItem setLeftBarButtonItem:nil];
     [self.navigationItem setRightBarButtonItem:rightArrowlItem_];
   }
+}
+-(void)setNowWeightLabelColor {
+  //ToDo refactoring
+  float newWeight = [self NewWeight];
+  float oldWeight = [self OldWeight];
+  if (newWeight > oldWeight) {
+    //led
+    weightView.weight100Label.textColor = [UIColor redColor];
+    weightView.weight10Label.textColor = [UIColor redColor];
+    weightView.weight1Label.textColor = [UIColor redColor];
+    weightView.weight01Label.textColor = [UIColor redColor];
+    weightView.commaLabel.textColor =  [UIColor redColor];
+    weightView.kgLabel.textColor = [UIColor redColor];
+  }else if (newWeight < oldWeight) {
+    //blue
+    weightView.weight100Label.textColor = [UIColor blueColor];
+    weightView.weight10Label.textColor = [UIColor blueColor];
+    weightView.weight1Label.textColor = [UIColor blueColor];
+    weightView.weight01Label.textColor = [UIColor blueColor];
+    weightView.commaLabel.textColor =  [UIColor blueColor];
+    weightView.kgLabel.textColor = [UIColor blueColor];
+  }else{
+    weightView.weight100Label.textColor = [UIColor whiteColor];
+    weightView.weight10Label.textColor = [UIColor whiteColor];
+    weightView.weight1Label.textColor = [UIColor whiteColor];
+    weightView.weight01Label.textColor = [UIColor whiteColor];
+    weightView.commaLabel.textColor =  [UIColor whiteColor];
+    weightView.kgLabel.textColor = [UIColor whiteColor];
+  }
+}
+-(float)NewWeight {
+  float newWeight = weightView.weight100Label.text.integerValue*100;
+  newWeight += weightView.weight10Label.text.integerValue*10;
+  newWeight += weightView.weight1Label.text.integerValue;
+  newWeight += weightView.weight01Label.text.integerValue*0.1;
+  return newWeight;
+}
+-(float)OldWeight {
+  float oldWeight = compareWeightView.weight100Label.text.integerValue*100;
+  oldWeight += compareWeightView.weight10Label.text.integerValue*10;
+  oldWeight += compareWeightView.weight1Label.text.integerValue;
+  oldWeight += compareWeightView.weight01Label.text.integerValue*0.1;
+  return oldWeight;
 }
 
 //pickerviewのデリゲート

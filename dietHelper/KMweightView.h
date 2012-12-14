@@ -24,12 +24,16 @@
   UILabel *weight1Label;
   UILabel *weight01Label;
   UILabel *dayLabel;
+  UILabel *commaLabel;
+  UILabel *kgLabel;
 }
 @property (nonatomic, retain) UILabel *weight100Label;
 @property (nonatomic, retain) UILabel *weight10Label;
 @property (nonatomic, retain) UILabel *weight1Label;
 @property (nonatomic, retain) UILabel *weight01Label;
 @property (nonatomic, retain) UILabel *dayLabel;
+@property (nonatomic, retain) UILabel *commaLabel;
+@property (nonatomic, retain) UILabel *kgLabel;
 - (id)initWithFrame:(CGRect)frame borderColor:(CGColorRef)borderColor textColor:(UIColor*)textColor;
 
 @end
