@@ -8,7 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		34534CE8167855E200927E04 /* KMDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34534CE7167855E200927E04 /* KMDataTableViewController.m */; };
+		34534CEB1679691F00927E04 /* KMweightDataListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 34534CEA1679691F00927E04 /* KMweightDataListCell.m */; };
+		34534CF1167AB39700927E04 /* KMInsertWeightDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34534CF0167AB39700927E04 /* KMInsertWeightDataViewController.m */; };
+		34534CF8167AC83600927E04 /* KMInsertWeightDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 34534CF7167AC83600927E04 /* KMInsertWeightDataView.m */; };
 		345F52AB1676D78700310EB3 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 345F52AA1676D78700310EB3 /* icon.png */; };
+		347F6D9F167ED3AB0087C78D /* KMInsertDateDataView.m in Sources */ = {isa = PBXBuildFile; fileRef = 347F6D9E167ED3AB0087C78D /* KMInsertDateDataView.m */; };
 		3487298916754C7C004A5890 /* KMweightView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3487298816754C7C004A5890 /* KMweightView.m */; };
 		3487298E16756DB3004A5890 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3487298B16756DB3004A5890 /* Model.xcdatamodeld */; };
 		34872991167571BD004A5890 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34872990167571BD004A5890 /* CoreData.framework */; };
@@ -45,7 +49,15 @@
 /* Begin PBXFileReference section */
 		34534CE6167855E200927E04 /* KMDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMDataTableViewController.h; sourceTree = "<group>"; };
 		34534CE7167855E200927E04 /* KMDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMDataTableViewController.m; sourceTree = "<group>"; };
+		34534CE91679691F00927E04 /* KMweightDataListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMweightDataListCell.h; sourceTree = "<group>"; };
+		34534CEA1679691F00927E04 /* KMweightDataListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMweightDataListCell.m; sourceTree = "<group>"; };
+		34534CEF167AB39700927E04 /* KMInsertWeightDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMInsertWeightDataViewController.h; sourceTree = "<group>"; };
+		34534CF0167AB39700927E04 /* KMInsertWeightDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMInsertWeightDataViewController.m; sourceTree = "<group>"; };
+		34534CF6167AC83600927E04 /* KMInsertWeightDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMInsertWeightDataView.h; sourceTree = "<group>"; };
+		34534CF7167AC83600927E04 /* KMInsertWeightDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMInsertWeightDataView.m; sourceTree = "<group>"; };
 		345F52AA1676D78700310EB3 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
+		347F6D9D167ED3AB0087C78D /* KMInsertDateDataView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMInsertDateDataView.h; sourceTree = "<group>"; };
+		347F6D9E167ED3AB0087C78D /* KMInsertDateDataView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMInsertDateDataView.m; sourceTree = "<group>"; };
 		3487298716754C7B004A5890 /* KMweightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KMweightView.h; sourceTree = "<group>"; };
 		3487298816754C7C004A5890 /* KMweightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KMweightView.m; sourceTree = "<group>"; };
 		3487298C16756DB3004A5890 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -104,6 +116,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		34534CF2167AC6F800927E04 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				3487298716754C7B004A5890 /* KMweightView.h */,
+				3487298816754C7C004A5890 /* KMweightView.m */,
+				34534CF6167AC83600927E04 /* KMInsertWeightDataView.h */,
+				34534CF7167AC83600927E04 /* KMInsertWeightDataView.m */,
+				347F6D9D167ED3AB0087C78D /* KMInsertDateDataView.h */,
+				347F6D9E167ED3AB0087C78D /* KMInsertDateDataView.m */,
+				34534CE91679691F00927E04 /* KMweightDataListCell.h */,
+				34534CEA1679691F00927E04 /* KMweightDataListCell.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
+		34534CF3167AC72000927E04 /* control */ = {
+			isa = PBXGroup;
+			children = (
+				34A87C9D1653124F00E8EF2E /* KMViewController.h */,
+				34A87C9E1653124F00E8EF2E /* KMViewController.m */,
+				34534CE6167855E200927E04 /* KMDataTableViewController.h */,
+				34534CE7167855E200927E04 /* KMDataTableViewController.m */,
+				34534CEF167AB39700927E04 /* KMInsertWeightDataViewController.h */,
+				34534CF0167AB39700927E04 /* KMInsertWeightDataViewController.m */,
+			);
+			name = control;
+			sourceTree = "<group>";
+		};
+		34534CF4167AC76100927E04 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				3487299516757A17004A5890 /* KMweightDataManager.h */,
+				3487299616757A17004A5890 /* KMweightDataManager.m */,
+				348729921675783B004A5890 /* WeightData.h */,
+				348729931675783B004A5890 /* WeightData.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
+		34534CF5167AC7A300927E04 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				34A87C8E1653124F00E8EF2E /* KMAppDelegate.h */,
+				34A87C8F1653124F00E8EF2E /* KMAppDelegate.m */,
+				34534CF4167AC76100927E04 /* model */,
+				34534CF3167AC72000927E04 /* control */,
+				34534CF2167AC6F800927E04 /* view */,
+			);
+			name = source;
+			sourceTree = "<group>";
+		};
 		345F52A91676D4D400310EB3 /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,18 +214,7 @@
 		34A87C851653124F00E8EF2E /* dietHelper */ = {
 			isa = PBXGroup;
 			children = (
-				34A87C8E1653124F00E8EF2E /* KMAppDelegate.h */,
-				34A87C8F1653124F00E8EF2E /* KMAppDelegate.m */,
-				34A87C9D1653124F00E8EF2E /* KMViewController.h */,
-				34A87C9E1653124F00E8EF2E /* KMViewController.m */,
-				34534CE6167855E200927E04 /* KMDataTableViewController.h */,
-				34534CE7167855E200927E04 /* KMDataTableViewController.m */,
-				3487298716754C7B004A5890 /* KMweightView.h */,
-				3487298816754C7C004A5890 /* KMweightView.m */,
-				348729921675783B004A5890 /* WeightData.h */,
-				348729931675783B004A5890 /* WeightData.m */,
-				3487299516757A17004A5890 /* KMweightDataManager.h */,
-				3487299616757A17004A5890 /* KMweightDataManager.m */,
+				34534CF5167AC7A300927E04 /* source */,
 				34A87C861653124F00E8EF2E /* Supporting Files */,
 			);
 			path = dietHelper;
@@ -318,6 +370,10 @@
 				348729941675783B004A5890 /* WeightData.m in Sources */,
 				3487299716757A17004A5890 /* KMweightDataManager.m in Sources */,
 				34534CE8167855E200927E04 /* KMDataTableViewController.m in Sources */,
+				34534CEB1679691F00927E04 /* KMweightDataListCell.m in Sources */,
+				34534CF1167AB39700927E04 /* KMInsertWeightDataViewController.m in Sources */,
+				34534CF8167AC83600927E04 /* KMInsertWeightDataView.m in Sources */,
+				347F6D9F167ED3AB0087C78D /* KMInsertDateDataView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

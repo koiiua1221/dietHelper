@@ -38,9 +38,9 @@ UILabel *diffLabel;
 
   CAGradientLayer *gradient = [CAGradientLayer layer];
   gradient.frame = self.view.bounds;
-  gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:0.3 green:0.3 blue:0.3 alpha:1.0] CGColor], (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0] CGColor], nil];
+  gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:1.0] CGColor], (id)[[UIColor colorWithRed:0 green:0 blue:0 alpha:1.0] CGColor], nil];
   [self.view.layer insertSublayer:gradient atIndex:0];
-  self.title = @"記録";
+  self.title = @"メインメニュー";
   
   df = [[NSDateFormatter alloc] init];
   df.dateFormat  = @"HH:mm:ss";

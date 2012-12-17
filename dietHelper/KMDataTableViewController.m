@@ -66,6 +66,54 @@ UIBarButtonItem *addItem;
   self.navigationController.toolbar.tintColor = [UIColor blackColor];
 
 }
+- (void)_updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
+{
+  KMweightDataListCell* weightDataListCell;
+  weightDataListCell = (KMweightDataListCell*)cell;
+  
+  // 指定された行のチャンネルの取得
+  NSArray*    weightDataArray;
+  WeightData* weightData = nil;
+  weightDataArray = [[KMweightDataManager sharedManager] sortedWeightData];
+  if (indexPath.row < [weightDataArray count]) {
+    weightData = [weightDataArray objectAtIndex:indexPath.row];
+  }
+  NSDateFormatter *df;
+  
+  df = [[NSDateFormatter alloc] init];
+  df.dateFormat  = @"yyyy/MM/dd HH:mm:ss";
+  
+  float weight = weightData.weight100.integerValue*100+weightData.weight010.integerValue*10+weightData.weight001.integerValue;
+  weight += weightData.weight000_1.integerValue*0.1;
+  
+  NSString *tmpString = [df stringFromDate:weightData.date];
+  tmpString = [tmpString stringByAppendingFormat:@"    %0.1f kg",weight];
+  weightDataListCell.textLabel.text = tmpString;
+  
+}
+
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+  [super setEditing:editing animated:animated];
+  [self.tableView setEditing:editing animated:YES];
+  if (editing) {
+    [self.navigationItem setRightBarButtonItem:addItem animated:YES];
+  } else {
+    [self.navigationItem setRightBarButtonItem:nil animated:YES];
+  }
+}
+- (void)addRow {
+  [self.tableView setEditing:false animated:YES];
+  [self setEditing:false];
+  [self.navigationItem setRightBarButtonItem:nil animated:YES];
+  
+  KMInsertWeightDataViewController *InsertWeightDataView = [[KMInsertWeightDataViewController alloc]init];
+  InsertWeightDataView.delegate = self;
+  UINavigationController *navController;
+  navController = [[UINavigationController alloc]initWithRootViewController:InsertWeightDataView];
+  navController.modalPresentationStyle=UIModalPresentationFormSheet;
+  [self presentViewController: navController animated:YES completion: ^{NSLog(@"完了");}];
+}
+
 #pragma mark - Table view data source
 /*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -134,49 +182,6 @@ UIBarButtonItem *addItem;
     return YES;
 }
 */
-- (void)_updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
-{
-  KMweightDataListCell* weightDataListCell;
-  weightDataListCell = (KMweightDataListCell*)cell;
-  
-  // 指定された行のチャンネルの取得
-  NSArray*    weightDataArray;
-  WeightData* weightData = nil;
-  weightDataArray = [[KMweightDataManager sharedManager] sortedWeightData];
-  if (indexPath.row < [weightDataArray count]) {
-    weightData = [weightDataArray objectAtIndex:indexPath.row];
-  }
-  NSDateFormatter *df;
-
-  df = [[NSDateFormatter alloc] init];
-  df.dateFormat  = @"yyyy/MM/dd HH:mm:ss";
-  
-  weightDataListCell.textLabel.text = [df stringFromDate:weightData.date];
-  
-}
-
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-  [super setEditing:editing animated:animated];
-  [self.tableView setEditing:editing animated:YES];
-  if (editing) {
-    [self.navigationItem setRightBarButtonItem:addItem animated:YES];
-  } else {
-    [self.navigationItem setRightBarButtonItem:nil animated:YES];
-  }
-}
-- (void)addRow {
-  [self.tableView setEditing:false animated:YES];
-  [self.navigationItem setRightBarButtonItem:nil animated:YES];
-  
-  KMInsertWeightDataViewController *InsertWeightDataView = [[KMInsertWeightDataViewController alloc]init];
-  InsertWeightDataView.delegate = self;
-  UINavigationController *navController;
-  navController = [[UINavigationController alloc]initWithRootViewController:InsertWeightDataView];
-  navController.modalPresentationStyle=UIModalPresentationFormSheet;
-  [self presentViewController: navController animated:YES completion: ^{NSLog(@"完了");}];
-}
-#pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Navigation logic may go here. Create and push another view controller.

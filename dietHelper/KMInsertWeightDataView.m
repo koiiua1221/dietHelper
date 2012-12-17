@@ -26,7 +26,7 @@
     
     UILabel *tmpLbl[6];
     for (int i = 0; i < 6; i++) {
-      tmpLbl[i]= [[UILabel alloc]initWithFrame:CGRectMake(0+(i*WEIGHT_LBL_LENGTH), DATE_LBL_HEIGHT, WEIGHT_LBL_LENGTH, WEIGHT_LBL_LENGTH)];
+      tmpLbl[i]= [[UILabel alloc]initWithFrame:CGRectMake(0+(i*WEIGHT_LBL_LENGTH), 0, WEIGHT_LBL_LENGTH, WEIGHT_LBL_LENGTH)];
       tmpLbl[i].backgroundColor = [UIColor grayColor];
       switch (i) {
         case 3:

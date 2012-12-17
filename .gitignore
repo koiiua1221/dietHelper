@@ -1,0 +1,14 @@
+.DS_Store
+build
+project.xcworkspace
+xcuserdata
+Local.h
+msdat
+*.pem
+cacert.pem
+!GTE CyberTrust Global Root.pem
+index.txt*
+serial*
+instrumentscli*
+dir.js
+test.log

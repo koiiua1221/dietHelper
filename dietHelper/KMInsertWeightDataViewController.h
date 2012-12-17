@@ -12,11 +12,15 @@
 #define KM_PICKER_HEIGHT      90
 #define KM_PICKER_WEIGHT      320
 
+#define KM_PICKER_TAG_WEIGHT 0
+#define KM_PICKER_TAG_DATE 1
+
 @interface KMInsertWeightDataViewController : UIViewController<UIPickerViewDelegate, UIPickerViewDataSource>
 {
   id  __unsafe_unretained _delegate;
+  WeightData *_WeightData;
 }
-
+@property (nonatomic, retain) WeightData* WeightData;
 @property (unsafe_unretained) id delegate;
 // デリゲートメソッド
 @end

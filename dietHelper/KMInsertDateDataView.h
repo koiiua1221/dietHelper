@@ -7,7 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <QuartzCore/QuartzCore.h>
+
+#define DATE_LBL_LEN (50)
 
 @interface KMInsertDateDataView : UIView
+{
+  UILabel *yearLabel;
+  UILabel *monthLabel;
+  UILabel *dayLabel;
+}
+@property (nonatomic, retain) UILabel *yearLabel;
+@property (nonatomic, retain) UILabel *monthLabel;
+@property (nonatomic, retain) UILabel *dayLabel;
 
 @end
