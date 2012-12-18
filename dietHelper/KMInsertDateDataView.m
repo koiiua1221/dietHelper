@@ -51,8 +51,20 @@
       self.yearLabel = tmpLbl[0];
       self.monthLabel = tmpLbl[2];
       self.dayLabel = tmpLbl[4];
+      self->nenLabel = tmpLbl[1];
+      self->tsukiLabel = tmpLbl[3];
+      self->hiLabel = tmpLbl[5];
     }
     return self;
+}
+- (void)setBorderColor:(CGColorRef)cgColor
+{
+  self.yearLabel.layer.borderColor = cgColor;
+  self.monthLabel.layer.borderColor = cgColor;
+  self.dayLabel.layer.borderColor = cgColor;
+  self->nenLabel.layer.borderColor = cgColor;
+  self->tsukiLabel.layer.borderColor = cgColor;
+  self->hiLabel.layer.borderColor = cgColor;
 }
 
 /*

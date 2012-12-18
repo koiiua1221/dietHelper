@@ -16,9 +16,13 @@
   UILabel *yearLabel;
   UILabel *monthLabel;
   UILabel *dayLabel;
+  UILabel *nenLabel;
+  UILabel *tsukiLabel;
+  UILabel *hiLabel;
 }
 @property (nonatomic, retain) UILabel *yearLabel;
 @property (nonatomic, retain) UILabel *monthLabel;
 @property (nonatomic, retain) UILabel *dayLabel;
+- (void)setBorderColor:(CGColorRef)cgColor;
 
 @end

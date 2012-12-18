@@ -24,9 +24,7 @@
 		34A87C8A1653124F00E8EF2E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 34A87C881653124F00E8EF2E /* InfoPlist.strings */; };
 		34A87C8C1653124F00E8EF2E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A87C8B1653124F00E8EF2E /* main.m */; };
 		34A87C901653124F00E8EF2E /* KMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A87C8F1653124F00E8EF2E /* KMAppDelegate.m */; };
-		34A87C921653124F00E8EF2E /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 34A87C911653124F00E8EF2E /* Default.png */; };
 		34A87C941653124F00E8EF2E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34A87C931653124F00E8EF2E /* Default@2x.png */; };
-		34A87C961653124F00E8EF2E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 34A87C951653124F00E8EF2E /* Default-568h@2x.png */; };
 		34A87C9F1653124F00E8EF2E /* KMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 34A87C9E1653124F00E8EF2E /* KMViewController.m */; };
 		34A87CA71653124F00E8EF2E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A87CA61653124F00E8EF2E /* SenTestingKit.framework */; };
 		34A87CA81653124F00E8EF2E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34A87C7F1653124F00E8EF2E /* UIKit.framework */; };
@@ -76,9 +74,7 @@
 		34A87C8D1653124F00E8EF2E /* dietHelper-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dietHelper-Prefix.pch"; sourceTree = "<group>"; };
 		34A87C8E1653124F00E8EF2E /* KMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMAppDelegate.h; sourceTree = "<group>"; };
 		34A87C8F1653124F00E8EF2E /* KMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMAppDelegate.m; sourceTree = "<group>"; };
-		34A87C911653124F00E8EF2E /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = dietHelper/Default.png; sourceTree = "<group>"; };
 		34A87C931653124F00E8EF2E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "dietHelper/Default@2x.png"; sourceTree = "<group>"; };
-		34A87C951653124F00E8EF2E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "dietHelper/Default-568h@2x.png"; sourceTree = "<group>"; };
 		34A87C9D1653124F00E8EF2E /* KMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KMViewController.h; sourceTree = "<group>"; };
 		34A87C9E1653124F00E8EF2E /* KMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KMViewController.m; sourceTree = "<group>"; };
 		34A87CA51653124F00E8EF2E /* dietHelperTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dietHelperTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,9 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				345F52AA1676D78700310EB3 /* icon.png */,
-				34A87C911653124F00E8EF2E /* Default.png */,
 				34A87C931653124F00E8EF2E /* Default@2x.png */,
-				34A87C951653124F00E8EF2E /* Default-568h@2x.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -324,9 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				34A87C8A1653124F00E8EF2E /* InfoPlist.strings in Resources */,
-				34A87C921653124F00E8EF2E /* Default.png in Resources */,
 				34A87C941653124F00E8EF2E /* Default@2x.png in Resources */,
-				34A87C961653124F00E8EF2E /* Default-568h@2x.png in Resources */,
 				345F52AB1676D78700310EB3 /* icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

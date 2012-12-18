@@ -19,22 +19,8 @@
   rootController_ = [[UINavigationController alloc]initWithRootViewController:mainView];
   [window addSubview:rootController_.view];
   [window makeKeyAndVisible];
-  [self fadeSplashScreen];
   sleep(1);
-    return YES;
-}
-- (void)fadeSplashScreen {
-  UIImage *img = [UIImage imageNamed:@"Default.png"];
-  CGRect bounds = [[UIScreen mainScreen]bounds];
-  UIImageView *imageview =[[UIImageView alloc]initWithFrame:bounds];
-  imageview.image = img;
-  [self.window addSubview:imageview];
-  
-  self.window.alpha = 1.0;
-  [UIView beginAnimations:nil context:nil];
-  [UIView setAnimationDuration:0.9];
-  imageview.alpha = 0.0;
-  [UIView commitAnimations];
+  return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
