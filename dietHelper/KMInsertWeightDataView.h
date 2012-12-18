@@ -18,7 +18,7 @@
 
 #define WEIGHT_LBL_TAG 200
 
-
+//ToDo ラベル集合体ビューの共通処理部を基底クラスとして作成する事（同じ処理増えた）
 @interface KMInsertWeightDataView : UIView
 {
   UILabel *weight100Label;
@@ -26,11 +26,14 @@
   UILabel *weight1Label;
   UILabel *weight01Label;
   UILabel *dayLabel;
+  UILabel *commaLabel;
+  UILabel *kgLable;
 }
 @property (nonatomic, retain) UILabel *weight100Label;
 @property (nonatomic, retain) UILabel *weight10Label;
 @property (nonatomic, retain) UILabel *weight1Label;
 @property (nonatomic, retain) UILabel *weight01Label;
 @property (nonatomic, retain) UILabel *dayLabel;
+- (void)setBorderColor:(CGColorRef)cgColor;
 
 @end

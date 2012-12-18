@@ -53,8 +53,19 @@
     self.weight10Label = tmpLbl[1];
     self.weight1Label = tmpLbl[2];
     self.weight01Label = tmpLbl[4];
-    }
-    return self;
+    self->commaLabel = tmpLbl[3];
+    self->kgLable = tmpLbl[5];
+  }
+  return self;
+}
+- (void)setBorderColor:(CGColorRef)cgColor
+{
+  self.weight100Label.layer.borderColor = cgColor;
+  self.weight10Label.layer.borderColor = cgColor;
+  self.weight1Label.layer.borderColor = cgColor;
+  self.weight01Label.layer.borderColor = cgColor;
+  self->commaLabel.layer.borderColor = cgColor;
+  self->kgLable.layer.borderColor = cgColor;
 }
 
 /*

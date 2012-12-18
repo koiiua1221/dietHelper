@@ -196,8 +196,6 @@ static KMweightDataManager*  _sharedInstance = nil;
 
 - (void)removeWeightDataAtIndex:(unsigned int)index
 {
-  
-  
   // 引数を確認する
   NSMutableArray*    sortedweightData;
   sortedweightData = self.sortedWeightData;
